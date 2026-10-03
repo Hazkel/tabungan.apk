@@ -44,6 +44,26 @@ jobs:
       - name: Create Android project
         run: npx cap add android
 
+      - name: Apply Android app icons
+        run: |
+          set -e
+
+          cp -R tabungan_foto/res/. android/app/src/main/res/
+
+          for density in mdpi hdpi xhdpi xxhdpi xxxhdpi; do
+            icon_dir="android/app/src/main/res/mipmap-${density}"
+            cp "${icon_dir}/tabungan.png" "${icon_dir}/ic_launcher.png"
+            cp "${icon_dir}/tabungan.png" "${icon_dir}/ic_launcher_round.png"
+          done
+
+          cp \
+            android/app/src/main/res/mipmap-anydpi-v26/tabungan.xml \
+            android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+
+          cp \
+            android/app/src/main/res/mipmap-anydpi-v26/tabungan.xml \
+            android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+
       - name: Sync web app to Android
         run: npx cap sync android
 
