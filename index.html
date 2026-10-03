@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Celengan Digital</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <!-- HEADER -->
+    <header>
+      <h1>🏦 TABUNGAN SAYA</h1>
+      <p id="streakDisplay">🔥 Streak: 0 hari</p>
+    </header>
+    
+    <!-- SALDO UTAMA -->
+    <section class="saldo-section">
+      <div class="saldo-besar" id="saldoDisplay">Rp 0</div>
+      <div class="target-info">
+        dari <span id="targetDisplay">Rp 100.000</span>
+      </div>
+      <div class="progress-wrapper">
+        <div class="progress-bg">
+          <div class="progress-fill" id="progressFill" style="width:0%"></div>
+        </div>
+        <span class="progress-text" id="progressText">0%</span>
+      </div>
+    </section>
+    
+    <!-- TOMBOL AKSI -->
+    <div class="action-buttons">
+      <button id="btnTambah" class="btn tambah">➕ Tambah</button>
+      <button id="btnAmbil" class="btn ambil">➖ Ambil</button>
+    </div>
+    
+    <!-- TARGET & KURANG -->
+    <div class="target-detail">
+      <p>🎯 Target: <span id="targetDetail">Rp 100.000</span></p>
+      <p>📉 Kurang: <span id="kurangDisplay">Rp 100.000</span></p>
+    </div>
+    
+    <!-- MILESTONE -->
+    <div class="milestone" id="milestoneContainer">
+      <span>🏅 Rp10k</span>
+      <span>🏅 Rp25k</span>
+      <span>🏅 Rp50k</span>
+      <span>🏅 Rp100k</span>
+    </div>
+    
+    <!-- RIWAYAT -->
+    <section class="riwayat">
+      <h2>📋 RIWAYAT</h2>
+      <div id="riwayatList">
+        <p style="color:#666; text-align:center; padding:20px;">Belum ada transaksi</p>
+      </div>
+    </section>
+    
+    <!-- SETTING TARGET (di bawah) -->
+    <div class="settings">
+      <label for="inputTarget">Ubah Target:</label>
+      <div style="display:flex; gap:8px;">
+        <input type="number" id="inputTarget" value="100000" min="1000" step="1000" />
+        <button id="btnUbahTarget" class="btn kecil">Set</button>
+      </div>
+      <button id="btnReset" class="btn kecil reset">🔄 Reset Semua Data</button>
+    </div>
+  </div>
+  
+  <!-- MODAL KONFIRMASI AMBIL -->
+  <div id="modalAmbil" class="modal hidden">
+    <div class="modal-content">
+      <h2>💸 Ambil Uang</h2>
+      <p>Saldo saat ini: <strong id="modalSaldo">Rp 0</strong></p>
+      <label for="jumlahAmbil">Jumlah (Rp):</label>
+      <input type="number" id="jumlahAmbil" min="1000" step="1000" value="5000" />
+      
+      <p style="margin-top:16px; font-weight:bold;">Kenapa uang ini diambil?</p>
+      <div class="alasan-grid">
+        <button class="alasan-btn" data-alasan="Makanan">🍔 Makanan</button>
+        <button class="alasan-btn" data-alasan="Transportasi">🚌 Transportasi</button>
+        <button class="alasan-btn" data-alasan="Keperluan sekolah">📚 Keperluan sekolah</button>
+        <button class="alasan-btn" data-alasan="Kebutuhan penting">🩹 Kebutuhan penting</button>
+        <button class="alasan-btn" data-alasan="Keinginan/jajan">🎮 Keinginan/jajan</button>
+      </div>
+      <div style="display:flex; gap:12px; margin-top:20px;">
+        <button id="btnBatalAmbil" class="btn kecil" style="flex:1;">Batal</button>
+        <button id="btnLanjutAmbil" class="btn tambah" style="flex:2;">Lanjutkan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- MODAL TAMBAH -->
+  <div id="modalTambah" class="modal hidden">
+    <div class="modal-content">
+      <h2>💰 Tambah Tabungan</h2>
+      <p>Masukkan jumlah yang ingin ditabung:</p>
+      <input type="number" id="jumlahTambah" min="1000" step="1000" value="5000" />
+      <div style="display:flex; gap:12px; margin-top:20px;">
+        <button id="btnBatalTambah" class="btn kecil" style="flex:1;">Batal</button>
+        <button id="btnLanjutTambah" class="btn tambah" style="flex:2;">Tambah</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+{
+  "appId": "com.satri.tabungan",
+  "appName": "Tabungan",
+  "webDir": ".",
+  "server": {
+    "androidScheme": "https"
+  }
+}
